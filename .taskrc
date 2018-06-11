@@ -1,0 +1,137 @@
+# [Created by task 2.2.0 6/23/2014 12:25:20]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
+# 'man task-tutorial', 'man task-color', 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# Color theme (uncomment one to use)
+#include /usr/share/task/light-16.theme
+#include /usr/share/task/light-256.theme
+#include /usr/share/task/dark-16.theme
+#include /usr/share/task/dark-256.theme
+#include /usr/share/task/dark-red-256.theme
+#include /usr/share/task/dark-green-256.theme
+#include /usr/share/task/dark-blue-256.theme
+#include /usr/share/task/dark-violets-256.theme
+#include /usr/share/task/dark-yellow-green.theme
+#include /usr/share/task/dark-gray-256.theme
+#include /usr/local/share/doc/task/rc/solarized-dark-256.theme
+
+# server config
+#taskd.credentials=binarybox \/ wes zero \/ bdfdf5f2-b4bc-4648-a018-a096d80e279b
+#taskd.ca=\/home\/wes\/.task\/ca.cert.pem
+#taskd.key=\/home\/wes\/.task\/wes_zero.key.pem
+#taskd.certificate=\/home\/wes\/.task\/wes_zero.cert.pem
+#taskd.server=binarybox.ch:53589
+#taskd.trust=strict
+#taskd.ciphers=NORMAL
+#taskd.trust=ignore hostname
+
+
+# config urgency
+urgency.next.coefficient=15.0                   # +next tag
+urgency.due.coefficient=10.0                    # overdue or near due date
+urgency.blocking.coefficient=2.0                # blocking other tasks
+urgency.uda.priority.H.coefficient=8.0                # priority
+urgency.uda.priority.M.coefficient=0.0                # priority
+urgency.uda.priority.L.coefficient=-50.0                # priority
+urgency.active.coefficient=10.0                  # already started tasks
+urgency.scheduled.coefficient=4.0               # scheduled tasks
+urgency.age.coefficient=50.0                     # Urgency coefficient for age
+urgency.annotations.coefficient=0.0             # has annotations
+urgency.tags.coefficient=0.0                    # has tags
+urgency.project.coefficient=0.0                 # assigned to any project
+urgency.blocked.coefficient=-8.0                # blocked by other tasks
+# urgency.waiting.coefficient=-8.0                # waiting task
+# urgency.user.tag.<tag>.coefficient=5.0          # specific tag
+# urgency.uda.<name>.coefficient=5.0              # specific UDA
+#
+#
+
+# # # Colors
+color=on
+
+color.active=color6
+color.alternate=
+
+color.blocked=color10 on color0
+
+color.burndown.done=color0 on color4
+color.burndown.pending=color0 on color1
+color.burndown.started=color0 on color9
+
+color.calendar.due=color0 on color9
+color.calendar.due.today=color0 on color1
+color.calendar.holiday=color0 on color3
+color.calendar.overdue=color0 on color5
+color.calendar.today=color0 on color4
+color.calendar.weekend=on color0
+color.calendar.weeknumber=color4
+
+color.debug=color6
+color.due=color9
+color.due.today=color1
+color.overdue=color5
+color.footnote=color6
+color.header=color4
+
+color.history.add=color0 on color1
+color.history.delete=color0 on color3
+color.history.done=color0 on color10
+
+color.uda.priority.H=color7
+color.uda.priority.M=
+color.uda.priority.L=color10
+
+color.blocked=
+color.blocking=on color0
+
+color.project.none=
+color.recurring=color4
+
+color.summary.background=on color0
+color.summary.bar=color0 on color6
+
+color.sync.added=color14
+color.sync.changed=color9
+color.sync.rejected=color13
+
+color.tag.none=
+color.tagged=
+
+color.undo.after=color2
+color.undo.before=color1
+
+# Default and format
+default.uda.priority=M
+default.priority=M
+dateformat=d/m/y
+dateformat.report=d/m/y
+dateformat.holiday=YDM
+dateformat.annotation=d/m/Y
+report.X.dateformat=d/m/Y
+weekstart=Monday
+
+context.atoutcoeur=+atout
+context.work=-atout
+context=work
+taskd.certificate=\/home\/jduc\/.task\/wes.cert.pem
+taskd.key=\/home\/jduc\/.task\/wes.key.pem
+taskd.ca=\/home\/jduc\/.task\/ca.cert.pem
+taskd.server=binarybox.ch:53589
+taskd.credentials=binarybox\/wes\/438b7b0c-674d-4169-bd82-01e2420e4514
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
