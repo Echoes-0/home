@@ -33,7 +33,7 @@ nnoremap <c-b> :Buffers<CR>
 nnoremap <c-p> :Files<CR>
 
 
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 
 Plug 'tmux-plugins/vim-tmux'
 
@@ -81,6 +81,9 @@ Plug 'https://github.com/vim-latex/vim-latex'
 let g:tex_conceal="dmgs"
 let g:tex_flavor="latex"
 
+" Base 16 theme
+Plug 'chriskempson/base16-vim'
+let base16colorspace=256  " Access colors present in 256 colorspace
 
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
@@ -89,10 +92,9 @@ let g:tex_flavor="latex"
 " let g:airline#extensions#tabline#enabled = 1
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
-
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'jellybeans',
       \ 'separator' : {'left' : '', 'right': ''},
       \ 'subseparator' : {'left' : '', 'right': ''},
       \ }
@@ -316,8 +318,8 @@ endi
 "autocmd BufEnter * lcd %:p:h
 set t_Co=256
 set background=dark
-colorscheme solarized
-"let g:solarized_termcolors=256
+
+colorscheme base16-default-dark
 
 "powerline
 "let g:Powerline_symbols = 'fancy'
