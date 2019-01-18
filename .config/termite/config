@@ -6,7 +6,6 @@ cursor_blink = off
 scrollback_lines = 10000
 urgent_on_bell = true
 
-# Solarized dark color scheme
 
 [colors]
 # Base16 Gruvbox dark, medium

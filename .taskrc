@@ -90,7 +90,7 @@ color.history.done=color0 on color10
 
 color.uda.priority.H=color7
 color.uda.priority.M=
-color.uda.priority.L=color10
+color.uda.priority.L=color30
 
 color.blocked=
 color.blocking=on color0

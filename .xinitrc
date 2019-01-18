@@ -33,7 +33,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # This was at the end
-#xrandr --setprovideroutputsource modesetting NVIDIA-0
 dunst -config ~/.config/dunst/dunst.conf & 
 unclutter &
 exec owncloud &

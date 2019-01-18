@@ -37,10 +37,10 @@ eval `dircolors ~/.dircolors`
 # zmodload -a autocomplete
 alias fidis='ssh duc@fidis.epfl.ch -t zsh'
 rsync_fidis() {
-  rsync --bwlimit=10M -aP duc@fidis.epfl.ch:$1 $2
+  rsync -aP duc@fidis.epfl.ch:$1 $2
 }
 rsync_tofidis() {
-  rsync --bwlimit=10M -aP $1 duc@fidis.epfl.ch:$2
+  rsync -aP $1 duc@fidis.epfl.ch:$2
 }
 alias from_fidis="noglob rsync_fidis"
 alias to_fidis="noglob rsync_tofidis"
@@ -56,12 +56,11 @@ alias refresh='source ~/.zshrc'
 alias cpwd='pwd | xclip -sel clipboard'
 alias untar="tar -xzf"
 alias vpn_epfl="sudo openconnect -u duc vpn.epfl.ch"
-alias to_samba="rsync --bwlimit=10MiB -aP --no-perms --no-group --no-owner"
+alias to_samba="rsync -aP --no-perms --no-group --no-owner"
 alias vim="vim --servername VIM"
 alias vim="nvim"
 alias k="k -h"
 alias glances="glances"
-alias lynx="lynx -lss ~/.lynx.lss"
 alias gitlog="git log --graph --abbrev-commit --decorate --date=relative"
 alias gquick="gcalcli quick --calendar LVG"
 alias xclip="xclip -sel clipboard"
@@ -83,7 +82,7 @@ bindkey -s '^l' 'clear'  # garret shell correct clear
 # bindkey '^[[A' history-substring-search-up
 # bindkey '^[[B' history-substring-search-down
 
-export PATH="/home/jduc/.local/bin/:/home/jduc/bin/:/home/jduc/scripts/python/:/home/jduc/scripts/bash/common:/home/jduc/.bash_scripts:/usr/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl"
+export PATH="/home/jduc/.local/bin/:/home/jduc/bin/:/home/jduc/scripts/python/:/home/jduc/scripts/bash/common:/home/jduc/.bash_scripts:/usr/local/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/bin/core_perl:/usr/bin/vendor_perl"
 
 # CUDA
 export PATH="$PATH:/opt/cuda/bin"

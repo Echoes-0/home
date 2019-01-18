@@ -1,8 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/mnt/lvg/Team LVG/bioinfo/projects/PY/1706_TE_boundByKrab/results'
-let g:netrw_dirhist_2='/mnt/lvg/Team LVG/bioinfo/projects/PY/1706_TE_boundByKrab'
-let g:netrw_dirhist_3='/home/jduc/Desktop/sambatmp/jpontis/1806_oekzfp_rnaseq/scripts'
-let g:netrw_dirhist_4='/home/jduc/Desktop/sambatmp/PY/1706_TE_boundByKrab/data/py_chip'
-let g:netrw_dirhist_5='/home/jduc/Desktop/sambatmp/PY/1706_TE_boundByKrab/data'
-let g:netrw_dirhist_6='/home/jduc/.config/libreoffice/4/cache'
+let g:netrw_dirhist_cnt =0
