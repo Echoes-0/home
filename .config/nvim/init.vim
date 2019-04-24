@@ -54,7 +54,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 
 " Use of ag in vim
-Plug 'rking/ag.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " Show macro and regisers
 Plug 'junegunn/vim-peekaboo'
@@ -118,12 +118,12 @@ let cmdline_app['sh']     = 'bash'
 
 " Linter and completion "
 """""""""""""""""""""""""
-Plug 'w0rp/ale'
-let g:ale_completion_enabled = 0
-let b:ale_linters = {'python': ['pyls']}
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black']}
-let g:ale_set_highlights = 0
-
+" Plug 'w0rp/ale'
+" let g:ale_completion_enabled = 0
+" let b:ale_linters = {'python': ['pyls']}
+" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['black']}
+" let g:ale_set_highlights = 0
+"
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
@@ -135,13 +135,13 @@ let g:ale_set_highlights = 0
 "     \ 'sh': ['bash-language-server', 'start']
 "     \ }
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-set runtimepath+=~/.config/nvim/plugged/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-inoremap <expr> <S-Tab> deoplete#mappings#manual_complete()
-
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" set runtimepath+=~/.config/nvim/plugged/deoplete.nvim
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_camel_case = 1
+" inoremap <expr> <S-Tab> deoplete#mappings#manual_complete()
+"
 " let g:deoplete#keyword_patterns = {}
 " let g:deoplete#keyword_patterns._ = '\w{2,}'
 " let g:deoplete#omni#input_patterns = {}
@@ -149,11 +149,25 @@ inoremap <expr> <S-Tab> deoplete#mappings#manual_complete()
 " let g:deoplete#sources = {}
 " let g:deoplete#sources._ = []
 
-Plug 'zchee/deoplete-jedi'
-let g:deoplete#sources#jedi#show_docstring=1
+" Plug 'zchee/deoplete-jedi'
+" let g:deoplete#sources#jedi#show_docstring=1
 
 " Plug 'davidhalter/jedi-vim'
 " let g:jedi#completions_enabled = 0
+
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+vmap <leader>gq  <Plug>(coc-format-selected)
+nmap qf <Plug>(coc-fix-current)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -276,8 +290,8 @@ set pastetoggle=<F2>
 set linebreak 
 
 " Use ag instead of grep
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+if executable('rg')
+    set grepprg=rg\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
     set grepformat=%f:%l:%c:%m
 endi
 
@@ -367,3 +381,4 @@ autocmd FileType tex setlocal sw=2 ts=2 tw=0 cc=0
 autocmd FileType sh setlocal ts=2 sw=2 tw=0
 autocmd FileType python setlocal sw=4 ts=8
 autocmd BufRead,BufNewFile REPORT.html,README.html setlocal syntax=markdown
+autocmd FileType json syntax match Comment +\/\/.\+$+
