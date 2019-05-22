@@ -75,10 +75,21 @@ Plug 'chriskempson/base16-vim'
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 Plug 'itchyny/lightline.vim'
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'separator' : {'left' : '', 'right': ''},
       \ 'subseparator' : {'left' : '', 'right': ''},
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
+      \ },
       \ }
 
 " Plug 'mgee/lightline-bufferline'
@@ -155,7 +166,7 @@ let cmdline_app['sh']     = 'bash'
 " Plug 'davidhalter/jedi-vim'
 " let g:jedi#completions_enabled = 0
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 vmap <leader>gq  <Plug>(coc-format-selected)

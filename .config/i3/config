@@ -258,8 +258,12 @@ bindsym $mod+Shift+s sticky toggle
 ### NOTIFICATION
 # start dunst
 exec dunst -mon 0 -config ~/.config/dunst/dunst.conf &
+# network tray
+exec --no-startup-id nm-applet &
+# start tray of audio
+exec --no-startup-id pasystray & 
 
 # start redshift
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk &
 # run polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

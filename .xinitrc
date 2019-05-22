@@ -35,6 +35,5 @@ fi
 # This was at the end
 dunst -config ~/.config/dunst/dunst.conf & 
 unclutter &
-exec --no-startup-id nm-applet &
 exec owncloud &
 exec i3

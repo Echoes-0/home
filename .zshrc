@@ -76,6 +76,7 @@ eval `dircolors ~/.dircolors`
 # zmodload -a colors
 # zmodload -a autocomplete
 alias fidis='ssh duc@fidis.epfl.ch -t zsh'
+alias helv='ssh duc@helvetios.epfl.ch -t zsh'
 rsync_fidis() {
   rsync -aP duc@fdata1.epfl.ch:$1 $2
 }
@@ -84,7 +85,6 @@ rsync_tofidis() {
 }
 alias from_fidis="noglob rsync_fidis"
 alias to_fidis="noglob rsync_tofidis"
-alias vitalit='ssh jduc@frt.el.vital-it.ch -t zsh'
 alias lvgsrv1='ssh duc@lvgtools.epfl.ch -t zsh'
 alias vitalitX='ssh jduc@frt.el.vital-it.ch -t zsh -Y'
 alias marioX='ssh -X duc@ptbbpc1.epfl.ch -t zsh'
